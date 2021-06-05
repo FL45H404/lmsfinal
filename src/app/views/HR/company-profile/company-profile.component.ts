@@ -80,7 +80,7 @@ stateId:any;
     company_registered_address3:[''],   
     city:['', [Validators.required]],
     state: ['', [Validators.required]],   
-    pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
+    pincode:['',[Validators.required,Validators.pattern('[1-9]{6}')]],
     country:['', [Validators.required]],
     gst_no:['', [ Validators.pattern('^[0-9A-Z, ]*$')]],
     website:[''], 
@@ -189,13 +189,13 @@ this.stateList=id;
       console.log(this.companyProfileForm.value)
       this.companyMasterService.addCompanyMaster(this.companyProfileForm.value).subscribe(
         (res) => {
-          this.successMsg="Company created successful ";
-          console.log('Company created successfully');
+          this.successMsg="Company Profile created successful ";
+          console.log('Company Profile created successfully');
                     
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Company created successfully',
+            title: 'Company Profile created successfully',
             showConfirmButton: false,
             timer: 1500
           })
@@ -216,13 +216,13 @@ this.stateList=id;
     else {
       this.companyMasterService.updatecompanyMaster(this.companyId, this.companyProfileForm.value)
       .subscribe(res => {      
-        console.log('Company updated successfully!')
-        this.successMsg="Company updated successfully ";
+        console.log('Company Profile updated successfully!')
+        this.successMsg="Company  Profile updated successfully ";
         this.readCategory();
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Company updated successfully',
+          title: 'Company Profile updated successfully',
           showConfirmButton: false,
           timer: 1500
         }).then((result) => {

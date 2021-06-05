@@ -104,7 +104,7 @@ export class EmployeeMasterComponent implements OnInit {
     address_proof:[''],
     employee_category_id:[''],
     aadhar_card_number: ['',[Validators.pattern('[0-9]{12}')]],
-    pan_card_number: ['',[Validators.required,Validators.pattern('[A-Z0-9]{10}')]],
+    pan_card_number: ['',[Validators.required,Validators.pattern('[a-zA-Z0-9]{10}')]],
     passport_number:['',[Validators.pattern('[A-Z0-9]{9}')]],
     email_id: ['', [Validators.pattern(this.emailPattern), Validators.required]],
     passport_issued_date:[''],
@@ -226,12 +226,12 @@ export class EmployeeMasterComponent implements OnInit {
             console.log(this.employeeMasterForm.value)
             this.employeeMasterService.employeeMasterCreate(this.employeeMasterForm.value).subscribe(
               (res) => {
-                this.successMsg="Employee successfully created ";
-                console.log('Employee successfully created!');
+                this.successMsg="Employee Profile successfully created ";
+                console.log('Employee Profile successfully created!');
                 Swal.fire({
                   position: 'center',
                   icon: 'success',
-                  title: 'Employee added successfully',
+                  title: 'Employee Profile added successfully',
                   showConfirmButton: false,
                   timer: 1500
                 })
@@ -254,13 +254,13 @@ export class EmployeeMasterComponent implements OnInit {
             if(result1 != false){  
                 this.employeeMasterService.updateEmployeeMaster(this.employeeId, this.employeeMasterForm.value)
                 .subscribe(res => {      
-                  console.log('Employee updated successfully!')
-                  this.successMsg="Employee updated successfully ";
+                  console.log('Employee Profile updated successfully!')
+                  this.successMsg="Employee Profile updated successfully ";
                   this.readCategory();
                   Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Employee updated successfully',
+                    title: 'Employee Profile updated successfully',
                     showConfirmButton: false,
                     timer: 1500
                   }).then((result) => {

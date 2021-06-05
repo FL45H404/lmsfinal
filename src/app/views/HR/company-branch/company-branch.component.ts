@@ -62,7 +62,7 @@ stateId:any;
     branch_address3:[''], 
     city:['', [Validators.required]],
     state: ['', [Validators.required]],   
-    pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
+    pincode:['',[Validators.required,Validators.pattern('[1-9]{6}')]],
     country:['', [Validators.required]],
     contact_no:['',[Validators.required,Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.maxLength(10),Validators.minLength(10)]],
     alternative_contact_no:['',[Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.maxLength(10),Validators.minLength(10)]],
@@ -174,12 +174,12 @@ this.stateList=id;
        
         this.companyBranchService.addcompanyBranch(this.companyBranchForm.value).subscribe(
           (res) => {
-            this.successMsg="Branch created successful ";
-            console.log('Branch created successfully');                      
+            this.successMsg=" Company Branch created successfuly ";
+            console.log('Company  Branch created successfully');                      
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: 'Branch created successfully',
+              title: 'Company Branch created successfully',
               showConfirmButton: false,
               timer: 1500
             })
@@ -199,13 +199,13 @@ this.stateList=id;
       else {
         this.companyBranchService.updatecompanyBranch(this.branchId, this.companyBranchForm.value)
         .subscribe(res => {      
-          console.log('Branch updated successfully!')
-          this.successMsg="Branch updated successfully ";
+          console.log(' Company Branch updated successfully!')
+          this.successMsg="Company Branch updated successfully ";
           this.readCategory();
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Branch updated successfully',
+            title: ' Company Branch updated successfully',
             showConfirmButton: false,
             timer: 1500
           }).then((result) => {

@@ -10,7 +10,7 @@ export class CompanyMasterService {
   //baseUri:string = baseUrl;
 
  //baseUri:string = 'https://whispering-caverns-64340.herokuapp.com';
-  //:string = 'http://localhost:3500';
+  //baseUri:string = 'http://localhost:3500';
   baseUri:string = 'https://lmsapi1997.herokuapp.com';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   

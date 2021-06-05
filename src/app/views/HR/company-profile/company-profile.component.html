@@ -94,7 +94,7 @@
             <td>
               <mat-form-field class="example-full-width font-h1" appearance="outline">
                 <mat-label>Country*</mat-label>
-                <input type="text" matInput [matAutocomplete]="auto" formControlName="country" />
+                <input type="text" matInput [matAutocomplete]="off" formControlName="country" />
                 <mat-autocomplete #auto="matAutocomplete">
                   <mat-option *ngFor="let data of filteredOptions | async" [value]="data.name"
                     (click)="countryChangeList(data.id)">
@@ -110,7 +110,7 @@
             <td>
               <mat-form-field class="example-full-width font-h1" appearance="outline">
                 <mat-label>State*</mat-label>
-                <input type="text" matInput [matAutocomplete]="auto2" formControlName="state" />
+                <input type="text" matInput [matAutocomplete]="off" formControlName="state" />
                 <mat-autocomplete #auto2="matAutocomplete">
                   <mat-option *ngFor="let ss of filteredState | async" [value]="ss.name"
                     (click)="stateChangeList(ss.id)">
@@ -130,7 +130,7 @@
             <td>
               <mat-form-field class="example-full-width font-h1" appearance="outline">
                 <mat-label>City*</mat-label>
-                <input type="text" matInput [matAutocomplete]="auto3" formControlName="city" />
+                <input type="text" matInput [matAutocomplete]="off" formControlName="city" />
                 <mat-autocomplete #auto3="matAutocomplete">
                   <mat-option *ngFor="let cc of filteredCity | async" [value]="cc.name">
                     {{cc.name}}

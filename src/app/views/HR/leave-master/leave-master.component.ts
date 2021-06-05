@@ -38,7 +38,7 @@ import Swal from 'sweetalert2';
    // Option:any=['Active','In-Active']
   // leaveMasterCreateForm: FormGroup;
   public today = new Date();
-   Option:any=['Sick Leave','Maternity Leave','Paternity Leave','Earned Leave','Annual Leave','Marriage Leave']
+   Option:any=['Sick Leave','Maternity Leave','Paternity Leave','Earned Leave','Annual Leave','Marriage Leave','Others']
   submitted = false;
 
   category: any;

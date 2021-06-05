@@ -53,8 +53,8 @@
 
                 <td>
                   <mat-form-field fxFlex='80' class="example-full-width2 font-h1" appearance="outline">
-                    <mat-label>Comments</mat-label>
-                    <input formControlName="comments" type="text" placeholder="Comments"  matInput />
+                    <mat-label>Specify Leave Type</mat-label>
+                    <input formControlName="comments" type="text" placeholder="Specify Leave Type"  matInput />
                  </mat-form-field>
                 </td>
 
@@ -120,7 +120,7 @@
       <mat-cell *matCellDef="let element"> {{element.leave_type}} </mat-cell>
   </ng-container>
       <ng-container matColumnDef="comments">
-        <mat-header-cell *matHeaderCellDef> Comments</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Specify Leave Type</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.comments}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="date">

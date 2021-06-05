@@ -19,7 +19,7 @@ export class EmployeeLeaveComponent implements OnInit {
   employeeLeaveForm: FormGroup;
   category: any;
   category1:any;
-  Option:any=['Pending','Approved','Rejected']
+  Option:any=['Pending']
   loaded: boolean;
   listdata: MatTableDataSource<any>;
   listdata1: MatTableDataSource<any>;
@@ -238,7 +238,7 @@ imageChanged(event){
         // }
         // ).subscribe(
         //   (res) => {
-            this.successMsg="Employee added successfully";
+            this.successMsg="Employee Leave added successfully";
             this.readCategory();
             this.readCategory1();
             this. resetForm(this.employeeLeaveForm);
