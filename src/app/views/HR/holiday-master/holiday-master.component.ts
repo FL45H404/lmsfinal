@@ -10,7 +10,7 @@ import { ApiService } from '../../../services/api.service';
 
 import Swal from 'sweetalert2';
 import { HolidayMasterService } from '../../../services/holiday-master.service';
-
+import * as Moment from 'moment';
 
 
 
@@ -76,12 +76,18 @@ import { HolidayMasterService } from '../../../services/holiday-master.service';
     // });
     this.holidayMasterService.getholidayMaster().subscribe((data) => {
       //console.log(data+"from employee service")
+       Object.keys(data).forEach(key => {
+         data[key].date = Moment(data[key].date).format("DD/MM/YYYY");
+       });
       this.holiday = data;
     });
     this.readCategory();
   }
   readCategory(){
     this.holidayMasterService.getholidayMaster().subscribe((data) => {
+      Object.keys(data).forEach(key => {
+        data[key].date = Moment(data[key].date).format("DD/MM/YYYY");
+      });
       this.category = data;
       this.changeDetectorRefs.detectChanges();
       this.listdata= new MatTableDataSource(this.category);  

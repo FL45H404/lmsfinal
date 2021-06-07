@@ -9,6 +9,7 @@ import { EmployeeService } from '../../../services/employee.service';
 import { EmployeeMasterService } from '../../../services/employee-master.service';
 import Swal from 'sweetalert2';
 
+import * as Moment from "moment";
 @Component({
   selector: 'app-employee-experience',
   templateUrl: './employee-experience.component.html',
@@ -67,6 +68,12 @@ export class EmployeeExperienceComponent implements OnInit {
   }
   readCategory(){
     this.employeeExperienceService.getemployeeExperience().subscribe((data) => {
+      Object.keys(data).forEach(key => {
+       
+        data[key].previous_experience_start_date = Moment(data[key].previous_experience_start_date).format("DD/MM/YYYY");
+        data[key].previous_experience_end_date = Moment(data[key].previous_experience_end_date).format("DD/MM/YYYY");
+        
+      });
       this.category = data;
       this.changeDetectorRefs.detectChanges();
       this.listdata= new MatTableDataSource(this.category);  

@@ -21,6 +21,7 @@ import { ApiService } from '../../../services/api.service';
 import { LeaveMasterService } from '../../../services/leave-master.service';
 
 import Swal from 'sweetalert2';
+import * as Moment from 'moment';
 
 // interface Car {
 //   value: string;
@@ -88,12 +89,20 @@ import Swal from 'sweetalert2';
     // });
     this.leaveMasterService.getleaveMaster().subscribe((data) => {
       //console.log(data+"from employee service")
+      // Object.keys(data).forEach(key => {
+      //   data[key].date = Moment(data[key].date).format("DD/MM/YYYY");
+      // });
+      
       this.leave = data;
+      console.log(data);
     });
     this.readCategory();
   }
   readCategory(){
     this.leaveMasterService.getleaveMaster().subscribe((data) => {
+        Object.keys(data).forEach(key => {
+         data[key].date = Moment(data[key].date).format("DD/MM/YYYY");
+       });
       this.category = data;
       this.changeDetectorRefs.detectChanges();
       this.listdata= new MatTableDataSource(this.category);  
@@ -215,5 +224,9 @@ else{
 
 }
   }
+}
+
+function item(item: any, arg1: (key: any) => void) {
+  throw new Error('Function not implemented.');
 }
 

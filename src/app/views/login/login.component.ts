@@ -51,8 +51,12 @@ result:any={};
           localStorage.setItem("user_id",data.user_id);
           Swal.fire({
             title:'Login successfull',
+            showConfirmButton: false,
+            timer: 1000,
           })
-          this.router.navigate(['/HR/CompanyProfile']);    
+          setTimeout(()=>{
+            this.router.navigate(['/HR/CompanyProfile']); 
+          },1000)   
           // debugger;    
         }    
         else{  

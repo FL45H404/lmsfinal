@@ -10,7 +10,7 @@ import { EmployeePromotionService } from '../../../services/employee-promotion.s
 import { EmployeeService } from '../../../services/employee.service';
 import { EmployeeMasterService } from '../../../services/employee-master.service';
 import Swal from 'sweetalert2';
-
+import * as Moment from 'moment';
 @Component({
   selector: 'app-employee-promotion',
   templateUrl: './employee-promotion.component.html',
@@ -70,6 +70,10 @@ export class EmployeePromotionComponent implements OnInit {
   }
   readCategory(){
     this.employeePromotionService.getPromotion().subscribe((data) => {
+      Object.keys(data).forEach(key => {
+        data[key].effective_promotion_date = Moment(data[key].effective_promotion_date).format("DD/MM/YYYY");
+       
+      });
       this.category = data;
       this.changeDetectorRefs.detectChanges();
       this.listdata= new MatTableDataSource(this.category);       
