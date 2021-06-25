@@ -35,7 +35,7 @@ stateId:any;
   branch_code:any;
 
   mobilePattern = new RegExp(/^\d{10}$/);
-  pinCodePattern = new RegExp(/^[1-9][0-9]{5,8}$/);
+  pinCodePattern = new RegExp(/^\d{5,8}$/);
   emailPattern = new RegExp(/^[a-zA-z][a-zA-Z0-9._-]{2,64}@[a-zA-Z0-9-]{2,240}\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/);
   displayedColumns: string[] = [ 'company_name','branch_name','status','actions'];
   constructor(
@@ -62,7 +62,7 @@ stateId:any;
     branch_address3:[''], 
     city:['', [Validators.required]],
     state: ['', [Validators.required]],   
-    pincode:['',[Validators.required,Validators.pattern('[1-9]{6}')]],
+    pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
     country:['', [Validators.required]],
     contact_no:['',[Validators.required,Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.maxLength(10),Validators.minLength(10)]],
     alternative_contact_no:['',[Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.maxLength(10),Validators.minLength(10)]],
