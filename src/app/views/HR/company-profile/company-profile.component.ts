@@ -51,7 +51,7 @@ stateId:any;
 
   mobilePattern = new RegExp(/^\d{10}$/);
   //phonePattern = new RegExp(/^\d{1,15}$/);
-  pinCodePattern = new RegExp(/^[1-9][0-9]{5,8}$/);
+  pinCodePattern = new RegExp(/^\d{5,8}$/);
   emailPattern = new RegExp(
     /^[a-zA-z][a-zA-Z0-9._-]{2,64}@[a-zA-Z0-9-]{2,240}\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$/
   );
@@ -80,7 +80,7 @@ stateId:any;
     company_registered_address3:[''],   
     city:['', [Validators.required]],
     state: ['', [Validators.required]],   
-    pincode:['',[Validators.required,Validators.pattern('[1-9]{6}')]],
+    pincode:['',[Validators.required,Validators.pattern('[0-9]{6}')]],
     country:['', [Validators.required]],
     gst_no:['', [ Validators.pattern('^[0-9A-Z, ]*$')]],
     website:[''], 
@@ -88,7 +88,7 @@ stateId:any;
     alternative_contact_no:['',[,Validators.pattern('[6-9]{1}[0-9]{9}'),Validators.maxLength(10),Validators.minLength(10)]],
     contact_person:['', [ Validators.pattern('^[a-zA-Z, ]*$')]],
     tan:['', [ Validators.pattern('^[a-zA-Z0-9, ]*$')]], 
-    pan:['',[Validators.required,Validators.pattern('[A-Z0-9]{10}')]],
+    pan:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]{10}')]],
     email: ['', [Validators.pattern(this.emailPattern), Validators.required]],
     alternative_email: ['', [Validators.pattern(this.emailPattern)]],
     company_type:['', [Validators.required, Validators.pattern('^[a-zA-Z, ]*$')]],
